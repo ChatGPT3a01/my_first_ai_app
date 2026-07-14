@@ -19,7 +19,7 @@ AI_PROVIDER = os.getenv('AI_PROVIDER', 'openai').lower()
 if AI_PROVIDER == 'google':
     import google.generativeai as genai
     genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-3.5-flash')
     print("使用 Google Gemini API")
 else:
     from openai import OpenAI
@@ -51,7 +51,7 @@ def chat():
         else:
             # 使用 OpenAI
             response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-5.6-luna",
                 messages=[
                     {"role": "system", "content": "你是一個友善的 AI 助手，請用繁體中文回答。"},
                     {"role": "user", "content": user_message}
